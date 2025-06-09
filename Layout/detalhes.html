@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">LaKza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Sobre
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contatos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            flex: 1; /* Ocupa o espaço disponível */
+            min-width: 300px; /* Garante um tamanho mínimo para a imagem */
+            margin-right: 30px;
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details {
+            flex: 2; /* Ocupa mais espaço que a imagem */
+            min-width: 300px; /* Garante um tamanho mínimo para os detalhes */
+        }
+
+        .product-title {
+            font-size: 2.5em;
+            color: #a47c2b; /* Cor relacionada a aromas/terra */
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.8em;
+            color: #a47c2b; 
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .product-options label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .product-options select,
+        .product-quantity input {
+            width: calc(100% - 22px); /* Ajusta a largura considerando o padding */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .add-to-cart-button {
+            background-color: #a47c2b; /* Marrom avermelhado */
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #a47c2b; 
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .product-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .product-title {
+                font-size: 2em;
+            }
+
+            .product-price {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <hr class="my-5">
+        <div class="container">
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="img/img1.jpg" alt="Frasco de aroma relaxante">
+            </div>
+        <div class="product-details">
+            <h1 class="product-title">Aroma de Lavanda Calmante</h1>
+            <p class="product-price">R$ 79,90</p>
+            <p class="product-description">
+                Experimente a tranquilidade com nosso **Aroma de Lavanda Calmante**. Perfeito para criar um ambiente relaxante em sua casa ou escritório. Com notas florais suaves e um toque amadeirado, este aroma é ideal para momentos de meditação, leitura ou simplesmente para descontrair após um longo dia. Nosso óleo essencial é 100% puro e natural, extraído das melhores lavandas cultivadas.
+                <br><br>
+                <ul>
+                    <li>Promove o relaxamento e reduz o estresse.</li>
+                    <li>Ajuda a melhorar a qualidade do sono.</li>
+                    <li>Deixa o ambiente com uma fragrância agradável e duradoura.</li>
+                    <li>Ideal para difusores, sachês ou aplicação em pontos de pulso.</li>
+                </ul>
+            </p>
+
+            <div class="product-quantity">
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1">
+            </div>
+                <a href="carrinho.html" class="btn btn-primary" target="_blank">Adicionar ao carrinho</a>
+            
+        </div>
+    </div>
+
+</body>
+</html>
+
+    </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

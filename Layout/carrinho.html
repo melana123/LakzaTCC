@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+        
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
+    '<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meu Carrinho - Loja de Aromas</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                margin: 20px;
+                background-color: #f8f8f8;
+                color: #333;
+            }
+    
+            .cart-container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            h1 {
+                font-size: 2.5em;
+                color: #5a2d0c;
+                margin-bottom: 25px;
+                text-align: center;
+            }
+    
+            .cart-item {
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #eee;
+                padding: 15px 0;
+                margin-bottom: 15px;
+            }
+    
+            .cart-item:last-child {
+                border-bottom: none; /* Remove a borda do último item */
+                margin-bottom: 0;
+            }
+    
+            .cart-item-image {
+                width: 100px;
+                height: 100px;
+                margin-right: 20px;
+                border-radius: 4px;
+                overflow: hidden; /* Garante que a imagem não saia do limite */
+            }
+    
+            .cart-item-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+            }
+    
+            .cart-item-details {
+                flex-grow: 1; /* Ocupa o espaço restante */
+            }
+    
+            .cart-item-details h2 {
+                font-size: 1.4em;
+                color: #444;
+                margin: 0 0 5px 0;
+            }
+    
+            .cart-item-details p {
+                font-size: 0.9em;
+                color: #777;
+                margin: 0 0 5px 0;
+            }
+    
+            .cart-item-price {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #a47c2b;
+                width: 120px; /* Largura fixa para o preço */
+                text-align: right;
+            }
+    
+            .cart-item-quantity {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+            }
+    
+            .cart-item-quantity input {
+                width: 50px;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                text-align: center;
+                font-size: 1em;
+                -moz-appearance: textfield; /* Remove setas em Firefox */
+            }
+    
+            .cart-item-quantity input::-webkit-outer-spin-button,
+            .cart-item-quantity input::-webkit-inner-spin-button {
+                -webkit-appearance: none; /* Remove setas em Chrome/Safari */
+                margin: 0;
+            }
+    
+            .remove-item-button {
+                background-color: #dc3545; /* Vermelho para remover */
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 0.9em;
+                transition: background-color 0.3s ease;
+            }
+    
+            .remove-item-button:hover {
+                background-color: #c82333;
+            }
+    
+            .cart-summary {
+                border-top: 2px solid #eee;
+                padding-top: 20px;
+                margin-top: 30px;
+                text-align: right;
+            }
+    
+            .cart-summary p {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+                color: #444;
+            }
+    
+            .cart-summary .total-price {
+                font-size: 1.8em;
+                font-weight: bold;
+                color: #a47c2b;
+                margin-bottom: 20px;
+            }
+    
+            .checkout-button {
+                background-color: #a47c2b;
+                color: white;
+                padding: 18px 30px;
+                border: none;
+                border-radius: 5px;
+                font-size: 1.3em;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                width: 100%;
+                box-sizing: border-box;
+                text-decoration: none; /* Para usar em um link */
+                display: inline-block; /* Para o padding funcionar em um link */
+            }
+    
+            .checkout-button:hover {
+                background-color: #8b4513;
+            }
+    
+            .empty-cart-message {
+                text-align: center;
+                font-size: 1.2em;
+                color: #777;
+                padding: 50px;
+            }
+    
+            @media (max-width: 768px) {
+                .cart-item {
+                    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+                    justify-content: space-between;
+                }
+    
+                .cart-item-image {
+                    margin-right: 15px;
+                    margin-bottom: 10px; /* Espaço abaixo da imagem em telas menores */
+                }
+    
+                .cart-item-details {
+                    flex-basis: 100%; /* Ocupa toda a largura disponível */
+                    margin-bottom: 10px;
+                }
+    
+                .cart-item-quantity {
+                    margin-right: 15px;
+                }
+    
+                .cart-item-price {
+                    width: auto; /* Deixa o preço ajustar a largura */
+                    text-align: left;
+                    margin-top: 10px;
+                    flex-basis: 100%;
+                }
+    
+                .remove-item-button {
+                    margin-top: 10px;
+                }
+    
+                .cart-summary {
+                    text-align: center;
+                }
+            }
+    
+            @media (max-width: 480px) {
+                .cart-item-image {
+                    width: 80px;
+                    height: 80px;
+                }
+    
+                .cart-item-details h2 {
+                    font-size: 1.2em;
+                }
+    
+                .cart-item-price {
+                    font-size: 1em;
+                }
+    
+                .cart-item-quantity input {
+                    width: 40px;
+                    padding: 5px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="cart-container">
+            <h1>Meu Carrinho</h1>
+    
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="img/img2.jpg" alt="Frasco de Aroma de Lavanda Calmante">
+                </div>
+                <div class="cart-item-details">
+                    <h2>Aroma de Lavanda Calmante</h2>
+                    <p>Volume: 50ml</p>
+                    <p>Preço Unitário: R$ 79,90</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <label for="qty-lavanda" class="sr-only">Quantidade:</label> <input type="number" id="qty-lavanda" value="1" min="1">
+                </div>
+                <div class="cart-item-price">R$ 79,90</div>
+                <button class="remove-item-button">Remover</button>
+            </div>
+    
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="img/img3.jpg" alt="Frasco de Aroma Cítrico Energizante">
+                </div>
+                <div class="cart-item-details">
+                    <h2>Aroma Cítrico Energizante</h2>
+                    <p>Volume: 30ml</p>
+                    <p>Preço Unitário: R$ 59,90</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <label for="qty-citrus" class="sr-only">Quantidade:</label>
+                    <input type="number" id="qty-citrus" value="2" min="1">
+                </div>
+                <div class="cart-item-price">R$ 119,80</div> <button class="remove-item-button">Remover</button>
+            </div>
+    
+            <div class="cart-summary">
+                <p>Subtotal: R$ 199,70</p>
+                <p>Frete: R$ 0,00 <small>(Grátis para este pedido!)</small></p>
+                <p class="total-price">Total: R$ 199,70</p>
+                <a href="#" class="checkout-button">Finalizar Compra</a>
+            </div>
+        </div>
+    
+    </body>
+    </html>'
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
