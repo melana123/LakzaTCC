@@ -11,7 +11,7 @@ public class AppDbSeed
         List<Categoria> categorias = new() {
             new Categoria { Id = 1, Nome = "Kit" },
             new Categoria { Id = 2, Nome = "Difusor de Aroma" },
-            new Categoria { Id = 3, Nome = "Essência" },
+            new Categoria { Id = 3, Nome = "Sabonetes" },
             new Categoria { Id = 4, Nome = "Vela" },
             new Categoria { Id = 5, Nome = "Aromatizador" },
             new Categoria { Id = 6, Nome = "Spray Car" },
@@ -27,39 +27,67 @@ public class AppDbSeed
             
 
             // Difusor
-            new Produto { Id = 6, CategoriaId = 2, Nome = "MacBook Pro M2", ValorCusto = 8000.00m, ValorVenda = 11999.00m, QtdeEstoque = 5, Destaque = true },
-            new Produto { Id = 7, CategoriaId = 2, Nome = "Dell XPS 15", ValorCusto = 7000.00m, ValorVenda = 9999.00m, QtdeEstoque = 7 },
-            new Produto { Id = 8, CategoriaId = 2, Nome = "Asus ROG Strix G15", ValorCusto = 7500.00m, ValorVenda = 10999.00m, QtdeEstoque = 6 },
-            new Produto { Id = 9, CategoriaId = 2, Nome = "Lenovo ThinkPad X1", ValorCusto = 5000.00m, ValorVenda = 7999.00m, QtdeEstoque = 10 },
-            new Produto { Id = 10, CategoriaId = 2, Nome = "HP Spectre x360", ValorCusto = 7200.00m, ValorVenda = 10499.00m, QtdeEstoque = 8 },
+            new Produto { Id = 6, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS ALECRIM 250ML", ValorCusto = 8000.00m, ValorVenda = 238.00m, QtdeEstoque = 5, Destaque = true },
+            new Produto { Id = 7, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS BABY 300ML", ValorCusto = 7000.00m, ValorVenda = 238.00m, QtdeEstoque = 7 },
+            new Produto { Id = 8, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS ? 250ML", ValorCusto = 7500.00m, ValorVenda = 238.00m, QtdeEstoque = 6 },
+            new Produto { Id = 9, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS TRUSS 250ML", ValorCusto = 5000.00m, ValorVenda = 238.00m, QtdeEstoque = 10 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS BOUQUET 250ML", ValorCusto = 7200.00m, ValorVenda = 238.00m, QtdeEstoque = 8 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS LIFE 250ML", ValorCusto = 7200.00m, ValorVenda = 168.00m, QtdeEstoque = 4 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS CITRUS 250ML", ValorCusto = 7200.00m, ValorVenda = 238.00m, QtdeEstoque = 8 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS FIGO MADEIRA 250ML", ValorCusto = 7200.00m, ValorVenda = 168.00m, QtdeEstoque = 10 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS MAGNOLIA 250ML", ValorCusto = 7200.00m, ValorVenda = 168.00m, QtdeEstoque = 9 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS MANDARINA 250ML", ValorCusto = 7200.00m, ValorVenda = 168.00m, QtdeEstoque = 8 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS VANILLA-PACHOULLI 250ML", ValorCusto = 7200.00m, ValorVenda = 168.00m, QtdeEstoque = 12 },
+            new Produto { Id = 10, CategoriaId = 2, Nome = "DIFUSOR DE AROMAS BAMBOO 250ML", ValorCusto = 7200.00m, ValorVenda = 238.00m, QtdeEstoque = 8 },
 
-            // Smartwatches
-            new Produto { Id = 11, CategoriaId = 3, Nome = "Apple Watch Series 8", ValorCusto = 2500.00m, ValorVenda = 3999.00m, QtdeEstoque = 10, Destaque = true },
-            new Produto { Id = 12, CategoriaId = 3, Nome = "Samsung Galaxy Watch 5", ValorCusto = 1500.00m, ValorVenda = 2499.00m, QtdeEstoque = 15 },
-            new Produto { Id = 13, CategoriaId = 3, Nome = "Garmin Fenix 7",  ValorCusto = 3500.00m, ValorVenda = 4999.00m, QtdeEstoque = 5 },
-            new Produto { Id = 14, CategoriaId = 3, Nome = "Xiaomi Mi Watch",  ValorCusto = 800.00m, ValorVenda = 1499.00m, QtdeEstoque = 20 },
-            new Produto { Id = 15, CategoriaId = 3, Nome = "Fitbit Sense 2", ValorCusto = 1200.00m, ValorVenda = 2099.00m, QtdeEstoque = 12 },
+            // Sabonetes
+            new Produto { Id = 11, CategoriaId = 3, Nome = "SABONETE LÍQUIDO BABY 350ML", ValorCusto = 2500.00m, ValorVenda = 128.00m, QtdeEstoque = 10, Destaque = true },
+            new Produto { Id = 12, CategoriaId = 3, Nome = "SABONETE LÍQUIDO ? 350ML", ValorCusto = 1500.00m, ValorVenda = 128.00m, QtdeEstoque = 15 },
+            new Produto { Id = 13, CategoriaId = 3, Nome = "SABONETE LÍQUIDO TRUSS 350ML",  ValorCusto = 3500.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 14, CategoriaId = 3, Nome = "SABONETE LÍQUIDO PRAIA 350ML",  ValorCusto = 800.00m, ValorVenda = 128.00m, QtdeEstoque = 20 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE LÍQUIDO LIFE 350ML", ValorCusto = 1200.00m, ValorVenda = 128.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE LÍQUIDO BAMBOO 350ML", ValorCusto = 1200.00m, ValorVenda = 128.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE LÍQUIDO ALECRIM 350ML", ValorCusto = 1200.00m, ValorVenda = 128.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE VANILLA-PACHOULLI 300ML", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE MANDARINA 300ML ", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE MAGNÓLIA 300ML", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE LAVANDA 300ML", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE FIGO-MADEIRA 300ML", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE CITRUS 300ML", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
+            new Produto { Id = 15, CategoriaId = 3, Nome = "SABONETE MOUSSE BOUQUET DE VERÃO 300ML", ValorCusto = 1200.00m, ValorVenda = 78.00m, QtdeEstoque = 12 },
 
-            // Fones de Ouvido
-            new Produto { Id = 16, CategoriaId = 4, Nome = "AirPods Pro", ValorCusto = 900.00m, ValorVenda = 1499.00m, QtdeEstoque = 12, Destaque = true },
-            new Produto { Id = 17, CategoriaId = 4, Nome = "Sony WH-1000XM5",  ValorCusto = 1400.00m, ValorVenda = 2199.00m, QtdeEstoque = 10 },
-            new Produto { Id = 18, CategoriaId = 4, Nome = "JBL Live 660NC",  ValorCusto = 600.00m, ValorVenda = 999.00m, QtdeEstoque = 20 },
-            new Produto { Id = 19, CategoriaId = 4, Nome = "Beats Studio Buds", ValorCusto = 800.00m, ValorVenda = 1299.00m, QtdeEstoque = 15 },
-            new Produto { Id = 20, CategoriaId = 4, Nome = "Razer Kraken X",  ValorCusto = 400.00m, ValorVenda = 699.00m, QtdeEstoque = 25 },
+            // Vela
+            new Produto { Id = 16, CategoriaId = 4, Nome = "VELA DECORATIVA TRUSS", ValorCusto = 900.00m, ValorVenda = 168.00m, QtdeEstoque = 12, Destaque = true },
+            new Produto { Id = 17, CategoriaId = 4, Nome = "VELA AROMÁTICA VANILLA-PACHOULLI",  ValorCusto = 1400.00m, ValorVenda = 92.00m, QtdeEstoque = 10 },
+            new Produto { Id = 18, CategoriaId = 4, Nome = "VELA AROMÁTICA BOUQUET",  ValorCusto = 600.00m, ValorVenda = 92.00m, QtdeEstoque = 20 },
+            new Produto { Id = 19, CategoriaId = 4, Nome = "VELA AROMÁTICA CITRUS", ValorCusto = 800.00m, ValorVenda = 92.00m, QtdeEstoque = 15 },
+            new Produto { Id = 20, CategoriaId = 4, Nome = "VELA AROMÁTICA FIGO-MADEIRA",  ValorCusto = 400.00m, ValorVenda = 92.00m, QtdeEstoque = 25 },
+            new Produto { Id = 20, CategoriaId = 4, Nome = "VELA AROMÁTICA LAVANDA",  ValorCusto = 400.00m, ValorVenda = 92.00m, QtdeEstoque = 25 },
+            new Produto { Id = 20, CategoriaId = 4, Nome = "VELA AROMÁTICA MAGNÓLIA",  ValorCusto = 400.00m, ValorVenda = 92.00m, QtdeEstoque = 25 },
+            new Produto { Id = 20, CategoriaId = 4, Nome = "VELA AROMÁTICA MANDARINA",  ValorCusto = 400.00m, ValorVenda = 92.00m, QtdeEstoque = 25 },
+           
+            // Aromatizador
+            new Produto { Id = 21, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES ? 500ML",  ValorCusto = 1200.00m, ValorVenda = 208.00m, QtdeEstoque = 8, Destaque = true },
+            new Produto { Id = 22, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES TRUSS 500ML", ValorCusto = 1400.00m, ValorVenda = 208.00m, QtdeEstoque = 10 },
+            new Produto { Id = 23, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES PRAIA 500ML",  ValorCusto = 900.00m, ValorVenda = 208.00m, QtdeEstoque = 15 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES LIFE 500ML", ValorCusto = 2000.00m, ValorVenda = 208.00m, QtdeEstoque = 5 },
+            new Produto { Id = 25, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES BAMBOO 500ML",  ValorCusto = 2500.00m, ValorVenda = 208.00m, QtdeEstoque = 6 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES BABY 500ML", ValorCusto = 2000.00m, ValorVenda = 208.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES ALECRIM 500ML", ValorCusto = 2000.00m, ValorVenda = 208.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES BABY 200ML", ValorCusto = 2000.00m, ValorVenda = 208.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES PRAIA 120ML", ValorCusto = 2000.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES ? 120ML", ValorCusto = 2000.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES TRUSS 120ML", ValorCusto = 2000.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES LIFE 120ML", ValorCusto = 2000.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES BAMBOO 120ML", ValorCusto = 2000.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES ALECRIM 120ML", ValorCusto = 2000.00m, ValorVenda = 128.00m, QtdeEstoque = 5 },
+            new Produto { Id = 24, CategoriaId = 5, Nome = "AROMATIZADOR DE AMBIENTES BOUQUET DE VERÃO 200ML", ValorCusto = 2000.00m, ValorVenda = 88.00m, QtdeEstoque = 5 },
 
-            // Monitores
-            new Produto { Id = 21, CategoriaId = 5, Nome = "LG Ultragear 27\"",  ValorCusto = 1200.00m, ValorVenda = 1899.00m, QtdeEstoque = 8, Destaque = true },
-            new Produto { Id = 22, CategoriaId = 5, Nome = "Samsung Odyssey G5", ValorCusto = 1400.00m, ValorVenda = 2399.00m, QtdeEstoque = 10 },
-            new Produto { Id = 23, CategoriaId = 5, Nome = "AOC Hero 24\"",  ValorCusto = 900.00m, ValorVenda = 1499.00m, QtdeEstoque = 15 },
-            new Produto { Id = 24, CategoriaId = 5, Nome = "Dell P2723QE", ValorCusto = 2000.00m, ValorVenda = 3299.00m, QtdeEstoque = 5 },
-            new Produto { Id = 25, CategoriaId = 5, Nome = "BenQ Zowie XL2546",  ValorCusto = 2500.00m, ValorVenda = 3999.00m, QtdeEstoque = 6 },
 
-            // Teclados e Mouses
-            new Produto { Id = 26, CategoriaId = 6, Nome = "Logitech G Pro X",  ValorCusto = 700.00m, ValorVenda = 1099.00m, QtdeEstoque = 20, Destaque = true },
-            new Produto { Id = 27, CategoriaId = 6, Nome = "Razer Huntsman Mini",  ValorCusto = 800.00m, ValorVenda = 1299.00m, QtdeEstoque = 12 },
-            new Produto { Id = 28, CategoriaId = 6, Nome = "HyperX Alloy FPS",  ValorCusto = 600.00m, ValorVenda = 999.00m, QtdeEstoque = 18 },
-            new Produto { Id = 29, CategoriaId = 6, Nome = "Logitech G502 Hero", ValorCusto = 300.00m, ValorVenda = 599.00m, QtdeEstoque = 25 },
-            new Produto { Id = 30, CategoriaId = 6, Nome = "Razer DeathAdder V2",  ValorCusto = 400.00m, ValorVenda = 699.00m, QtdeEstoque = 20 },
+            //Spray car
+            new Produto { Id = 26, CategoriaId = 6, Nome = "SPRAY CAR TRUSS 60ML",  ValorCusto = 700.00m, ValorVenda = 58.00m, QtdeEstoque = 20, Destaque = true },
+            new Produto { Id = 27, CategoriaId = 6, Nome = "SPRAY CAR BAMBOO 60ML",  ValorCusto = 800.00m, ValorVenda = 58.00m, QtdeEstoque = 12 },
+    
 
         };
         builder.Entity<Produto>().HasData(produtos);
