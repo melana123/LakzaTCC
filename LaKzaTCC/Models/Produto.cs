@@ -36,6 +36,5 @@ public class Produto
 
     [StringLength(200)]
     [Display(Name ="Foto")]
-    [Required(ErrorMessage ="Por favor, selecione a Foto")]
     public string ArquivoFoto { get; set; }
 }
