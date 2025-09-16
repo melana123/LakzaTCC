@@ -1,0 +1,110 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    flex: 1; /* Ocupa o espaço disponível */
+    min-width: 300px; /* Garante um tamanho mínimo para a imagem */
+    margin-right: 30px;
+    text-align: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    flex: 2; /* Ocupa mais espaço que a imagem */
+    min-width: 300px; /* Garante um tamanho mínimo para os detalhes */
+}
+
+.product-title {
+    font-size: 2.5em;
+    color: #a47c2b; /* Cor relacionada a aromas/terra */
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 1.8em;
+    color: #a47c2b; 
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.product-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.product-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.product-options select,
+.product-quantity input {
+    width: calc(100% - 22px); /* Ajusta a largura considerando o padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.add-to-cart-button {
+    background-color: #a47c2b; /* Marrom avermelhado */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+.add-to-cart-button:hover {
+    background-color: #a47c2b; 
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .product-title {
+        font-size: 2em;
+    }
+
+    .product-price {
+        font-size: 1.5em;
+    }
+}
