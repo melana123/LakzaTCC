@@ -1,0 +1,55 @@
+@model LaKzaTCC.ViewModels.ProdutoVM
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+    var produto = Model.Produto;
+    var semelhantes = Model.Semelhantes;
+}
+
+<div class="container my-5 pt-5">
+    <div class="row">
+        <!-- Imagem do produto -->
+        <div class="col-md-6">
+            <img src="@produto.ArquivoFoto" alt="@produto.Nome" class="img-fluid rounded shadow" />
+        </div>
+
+        <!-- Informações do produto -->
+        <div class="col-md-6">
+            <h1 class="mb-3">@produto.Nome</h1>
+            <p class="text-muted">Categoria: <strong>@produto.Categoria.Nome</strong></p>
+            <p><strong>Valor de Venda:</strong> <span class="text-success fs-4">R$ @produto.ValorVenda.ToString("F2")</span></p>
+            <p><strong>Estoque disponível:</strong> @produto.QtdeEstoque</p>
+
+        
+            <form asp-action="Comprar" method="post">
+            <input type="hidden" name="id" value="@produto.Id" />
+             <button type="submit" class="btn btn-primary mt-3">Comprar</button>
+</form>
+        </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- Produtos semelhantes -->
+    @if (semelhantes != null && semelhantes.Any())
+    {
+        <h3 class="mb-4">Você também pode gostar de:</h3>
+        <div class="d-flex flex-wrap gap-4">
+            @foreach (var s in semelhantes)
+            {
+                <div class="card shadow-sm" style="width: 18rem;">
+                    <img src="@s.ArquivoFoto" class="card-img-top" alt="@s.Nome" />
+                    <div class="card-body">
+                        <h5 class="card-title">@s.Nome</h5>
+                        <p class="text-success fw-bold">R$ @s.ValorVenda.ToString("F2")</p>
+                        <a asp-controller="Home" asp-action="Produto" asp-route-id="@s.Id" class="btn btn-outline-primary">Ver mais</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-muted">Nenhum produto semelhante encontrado.</p>
+    }
+</div>

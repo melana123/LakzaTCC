@@ -12,26 +12,31 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-action="Index" asp-controller="Home">LaKza</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a href="sobre.html" class="nav-link" target="_blank">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contatos.html" class="nav-link" target="_blank">Contatos</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                <img src="/img/Logo.png"
+                     alt="Lakza Logo"
+                     style="height:60px;" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Sobre" class="nav-link">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Contatos" class="nav-link">Contatos</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
     <main>
         @RenderBody()
     </main>
@@ -52,6 +57,3 @@
 </body>
 
 </html>
-    
-    
-    

@@ -13,6 +13,10 @@ namespace LaKzaTCC.Data ;
             public DbSet<Categoria> Categorias { get; set; }
             public DbSet<Produto>  Produtos { get; set; }
             public DbSet<Usuario> Usuarios { get; set; }
+            public DbSet<Pedido> Pedidos { get; set; }
+            public DbSet<PedidoItem> PedidoItens { get; set; }
+           
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

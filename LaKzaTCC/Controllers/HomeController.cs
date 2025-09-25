@@ -17,27 +17,33 @@ public class HomeController : Controller
         _logger = logger;
         _db = db;
     }
+    public IActionResult Sobre()
+{
+    return View();
+}
 
-    public IActionResult Index()
-    {
-        List<Produto> produtos = _db.Produtos
-            .Where(p => p.Destaque)
-            .ToList();
-        return View(produtos);
-    }
+public IActionResult Contatos()
+{
+    return View();
+}
 
+   public IActionResult Index()
+{
+    List<Produto> produtos = _db.Produtos
+        .ToList();
+
+    return View(produtos);
+}
     public IActionResult Produto(int id)
     {
         Produto produto = _db.Produtos
             .Where(p => p.Id == id)
             .Include(p => p.Categoria)
-            .Include(p => p.ArquivoFoto)
             .SingleOrDefault();
         
         List<Produto> semelhantes = _db.Produtos
             .Where(p => p.Id != id && p.CategoriaId == produto.CategoriaId)
             .Include(p => p.Categoria)
-            .Include(p => p.ArquivoFoto)
             .Take(4)
             .ToList();
         
@@ -58,5 +64,48 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+ 
     }
+    public IActionResult Confirmacao(int id)
+{
+    var pedido = _db.Pedidos
+        .Include(p => p.Itens)
+        .ThenInclude(i => i.Produto)
+        .FirstOrDefault(p => p.Id == id);
+
+    if (pedido == null)
+        return NotFound();
+
+    return View(pedido);
+}
+
+    [HttpPost]
+public IActionResult Comprar(int id)
+{
+    var produto = _db.Produtos.Find(id);
+    if (produto == null || produto.QtdeEstoque <= 0)
+    {
+        return NotFound("Produto indisponível.");
+    }
+
+    // Atualiza estoque
+    produto.QtdeEstoque -= 1;
+
+    // Cria o pedido
+    var pedido = new Pedido();
+    var item = new PedidoItem
+    {
+        ProdutoId = produto.Id,
+        Quantidade = 1,
+        ValorUnitario = produto.ValorVenda
+    };
+
+    pedido.Itens.Add(item);
+
+    _db.Pedidos.Add(pedido);
+    _db.SaveChanges();
+
+    return RedirectToAction("Confirmacao", new { id = pedido.Id });
+}
+
 }

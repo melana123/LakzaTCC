@@ -1,0 +1,36 @@
+@model LaKzaTCC.Models.Pedido
+
+@{
+    ViewData["Title"] = "Pedido Confirmado";
+}
+
+<div class="container mt-5">
+    <h2>Pedido Realizado com Sucesso!</h2>
+    <p class="lead">Obrigado pela sua compra. Abaixo estão os detalhes:</p>
+
+    <hr />
+
+    <p><strong>Data do Pedido:</strong> @Model.DataPedido.ToString("dd/MM/yyyy HH:mm")</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Itens)
+            {
+                <tr>
+                    <td>@item.Produto.Nome</td>
+                    <td>@item.Quantidade</td>
+                    <td>R$ @item.ValorUnitario.ToString("F2")</td>
+                    <td>R$ @(item.Quantidade * item.ValorUnitario).ToString("F2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -20,12 +20,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"> <a href="sobre.html" class="nav-link" target="_blank">Sobre</a>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contatos.html" class="nav-link" target="_blank">Contatos</a>
-                        </li>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Sobre" class="nav-link">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Contatos" class="nav-link">Contatos</a>
+                            </li>
+                        </ul>
+                        
                     </ul>
                 </div>
             </div>
