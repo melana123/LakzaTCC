@@ -19,11 +19,11 @@
                      alt="Lakza Logo"
                      style="height:60px;" />
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+            <button class="navbar-toggler" type="button " data-bs-toggle="collapse" data-bs-target="#navbarColor02"
                 aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
+            <div class="collapse navbar-collapse  " id="navbarColor02">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Sobre" class="nav-link">Sobre</a>
@@ -37,16 +37,16 @@
     </nav>
 </header>
 
-    <main>
+    <main class="h-100">
         @RenderBody()
     </main>
 
-    <footer class="bg-dark text-white text-center py-4 mt-5">
+    <footer class="bg-secondary text-dark text-center py-4 mt-5">
         <div class="container">
             <p class="mb-1">&copy; 2025 Lakza. Todos os direitos reservados.</p>
-            <a href="#" class="text-white mx-2">Sobre</a>
-            <a href="#" class="text-white mx-2">Contato</a>
-            <a href="#" class="text-white mx-2">Política de Privacidade</a>
+            <a href="#" class="text-dark mx-2">Sobre</a>
+            <a href="#" class="text-dark mx-2">Contato</a>
+            <a href="#" class="text-dark mx-2">Política de Privacidade</a>
         </div>
     </footer>
 

@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #a47c2b;
+  background-color: #fcfcfcef;
 }
 
 .carousel,
@@ -12,9 +12,32 @@
   height: 100vh;
   object-fit: cover;
 }
+
 .card-img-top {
-width: 100%;
-height: 300px;
-object-fit: contain; 
-display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
 }
+
+/* Conteúdo principal */
+.conteudo {
+  min-height: calc(100vh - 150px);
+  padding: 40px 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+}
+
+.sobre h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #ac812b;
+}
+
+.sobre p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+

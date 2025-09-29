@@ -1,5 +1,9 @@
+html, body {
+    min-height: 100vh;
+}
+
 .navbar {
-    background-color: #a47c2b;
+    background-color: #fcfcfcef;
 }
 
 .carousel,
@@ -17,4 +21,14 @@
   height: 300px;
   object-fit: contain; 
   display: block;
+  
+}
+.btn-primary {
+    background-color: #ac812b !important;
+    border-color: #ac812b !important;
+}
+
+.btn-primary:hover {
+    background-color: #8c691f !important;
+    border-color: #8c691f !important;
 }

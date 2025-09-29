@@ -119,11 +119,11 @@ public class AppDbSeed
                 Id = "ddf093a6-6cb5-4ff7-9a64-83da34aee005",
                 Email = "gallojunior@gmail.com",
                 NormalizedEmail = "GALLOJUNIOR@GMAIL.COM",
-                UserName = "GalloJunior",
-                NormalizedUserName = "GALLOJUNIOR",
+                UserName = "AnaZinsly",
+                NormalizedUserName = "ANALUIZA",
                 LockoutEnabled = true,
                 EmailConfirmed = true,
-                Nome = "José Antonio Gallo Junior",
+                Nome = "Ana Luiza Zinsly",
             }
         };
         foreach (var user in usuarios)
