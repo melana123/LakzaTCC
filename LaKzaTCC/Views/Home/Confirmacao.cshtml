@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css">
 }
 
-<div class="conteudo mt-5">
+<div class="conteudo mt-5 text-center">
     <h2>Pedido Realizado com Sucesso!</h2>
     <p class="lead">Obrigado pela sua compra. Abaixo estão os detalhes:</p>
 
@@ -16,7 +16,7 @@
 
     <p><strong>Data do Pedido:</strong> @Model.DataPedido.ToString("dd/MM/yyyy HH:mm")</p>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Produto</th>
@@ -37,4 +37,43 @@
             }
         </tbody>
     </table>
+
+    <!-- Botão WhatsApp -->
+    <a id="btnWhatsApp" class="btn btn-success mt-3" target="_blank">
+        Finalizar pelo WhatsApp
+    </a>
 </div>
+
+@section Scripts {
+    <script>
+        // Número da loja (DDI + DDD + número, sem espaços nem traços)
+        const numeroLoja = "14998087834"; // Exemplo: +55 (14) 99999-9999
+
+        // Dados vindos do Model
+        const dataPedido = "@Model.DataPedido.ToString("dd/MM/yyyy HH:mm")";
+
+        // Monta os itens do pedido
+        let itens = "";
+        @foreach (var item in Model.Itens)
+        {
+            <text>
+                itens += "🛍 Produto: @item.Produto.Nome\n";
+                itens += "🔢 Quantidade: @item.Quantidade\n";
+                itens += "💲 Valor Unitário: R$ @item.ValorUnitario.ToString("F2")\n";
+                itens += "💰 Total: R$ @((item.Quantidade * item.ValorUnitario).ToString("F2"))\n\n";
+            </text>
+        }
+
+        // Mensagem completa
+        const mensagem = `📦 *Novo Pedido Realizado!*\n\n🗓 Data do Pedido: ${dataPedido}\n\n${itens}✅ Pedido feito pelo site La Kza.`;
+
+        // Codifica a mensagem para não dar problema de acento/emoji
+        const mensagemCodificada = encodeURIComponent(mensagem);
+
+        // Monta link
+        const urlWhatsApp = `https://wa.me/${numeroLoja}?text=${mensagemCodificada}`;
+
+        // Atribui no botão
+        document.getElementById("btnWhatsApp").href = urlWhatsApp;
+    </script>
+}
