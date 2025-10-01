@@ -17,7 +17,7 @@
         <div class="col-md-6">
             <h1 class="mb-3">@produto.Nome</h1>
             <p class="text-muted">Categoria: <strong>@produto.Categoria.Nome</strong></p>
-            <p><strong>Valor de Venda:</strong> <span class="text-success fs-4">R$ @produto.ValorVenda.ToString("F2")</span></p>
+            <p><strong>Valor de Venda:</strong> <span class="text-success fs-4">R$ @(produto.ValorVenda.ToString("F2"))</span></p>
             <p><strong>Estoque disponível:</strong> @produto.QtdeEstoque</p>
 
         

@@ -4,7 +4,11 @@
     ViewData["Title"] = "Pedido Confirmado";
 }
 
-<div class="container mt-5">
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css">
+}
+
+<div class="conteudo mt-5">
     <h2>Pedido Realizado com Sucesso!</h2>
     <p class="lead">Obrigado pela sua compra. Abaixo estão os detalhes:</p>
 
@@ -28,7 +32,7 @@
                     <td>@item.Produto.Nome</td>
                     <td>@item.Quantidade</td>
                     <td>R$ @item.ValorUnitario.ToString("F2")</td>
-                    <td>R$ @(item.Quantidade * item.ValorUnitario).ToString("F2")</td>
+                    <td>R$ @((item.Quantidade * item.ValorUnitario).ToString("F2"))</td>
                 </tr>
             }
         </tbody>
