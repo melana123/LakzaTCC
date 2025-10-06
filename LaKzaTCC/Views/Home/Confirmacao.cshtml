@@ -46,34 +46,40 @@
 
 @section Scripts {
     <script>
-        // Número da loja (DDI + DDD + número, sem espaços nem traços)
-        const numeroLoja = "14998087834"; // Exemplo: +55 (14) 99999-9999
+        document.addEventListener("DOMContentLoaded", function () {
+            const numeroLoja = "14998087834";
 
-        // Dados vindos do Model
-        const dataPedido = "@Model.DataPedido.ToString("dd/MM/yyyy HH:mm")";
+            const dataPedido = @Html.Raw(Json.Serialize(Model.DataPedido.ToString("dd/MM/yyyy HH:mm")));
 
-        // Monta os itens do pedido
-        let itens = "";
-        @foreach (var item in Model.Itens)
-        {
-            <text>
-                itens += "🛍 Produto: @item.Produto.Nome\n";
-                itens += "🔢 Quantidade: @item.Quantidade\n";
-                itens += "💲 Valor Unitário: R$ @item.ValorUnitario.ToString("F2")\n";
-                itens += "💰 Total: R$ @((item.Quantidade * item.ValorUnitario).ToString("F2"))\n\n";
-            </text>
-        }
+            let itens = "";
 
-        // Mensagem completa
-        const mensagem = `📦 *Novo Pedido Realizado!*\n\n🗓 Data do Pedido: ${dataPedido}\n\n${itens}✅ Pedido feito pelo site La Kza.`;
+            @foreach (var item in Model.Itens)
+            {
+                var produto = item.Produto.Nome;
+                var quantidade = item.Quantidade;
+                var valorUnitario = item.ValorUnitario.ToString("F2");
+                var total = (item.Quantidade * item.ValorUnitario).ToString("F2");
 
-        // Codifica a mensagem para não dar problema de acento/emoji
-        const mensagemCodificada = encodeURIComponent(mensagem);
+                <text>
+                    itens += " Produto: @produto\n";
+                    itens += " Quantidade: @quantidade\n";
+                    itens += " Valor Unitário: R$ @valorUnitario\n";
+                    itens += " Total: R$ @total\n\n";
+                </text>
+            }
 
-        // Monta link
-        const urlWhatsApp = `https://wa.me/${numeroLoja}?text=${mensagemCodificada}`;
+            const mensagem = ` *Novo Pedido Realizado!*\n\n🗓 Data do Pedido: ${dataPedido}\n\n${itens}✅ Pedido feito pelo site La Kza.`;
 
-        // Atribui no botão
-        document.getElementById("btnWhatsApp").href = urlWhatsApp;
+            const mensagemCodificada = encodeURIComponent(mensagem);
+
+            const urlWhatsApp = `https://wa.me/${numeroLoja}?text=${mensagemCodificada}`;
+
+            const botao = document.getElementById("btnWhatsApp");
+            if (botao) {
+                botao.href = urlWhatsApp;
+            } else {
+                console.warn("Botão #btnWhatsApp não encontrado.");
+            }
+        });
     </script>
 }
