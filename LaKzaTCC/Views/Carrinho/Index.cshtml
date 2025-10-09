@@ -1,0 +1,73 @@
+@{
+    ViewData["Title"] = "Meu Carrinho";
+}
+
+<div class="container my-5 pt-5">
+    <h2 class="mb-4">🛒 Meu Carrinho</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tabelaCarrinho">
+            <!-- preenchido pelo JS -->
+        </tbody>
+    </table>
+
+    <div class="text-end mt-3">
+        <h4>Total: <span id="valorTotal" class="text-success">R$ 0,00</span></h4>
+        <button id="limparCarrinho" class="btn btn-danger mt-3">Esvaziar Carrinho</button>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    function atualizarCarrinho() {
+        const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        const tabela = document.getElementById("tabelaCarrinho");
+        tabela.innerHTML = "";
+        let total = 0;
+
+        if (carrinho.length === 0) {
+            tabela.innerHTML = `<tr><td colspan="5" class="text-center">Seu carrinho está vazio.</td></tr>`;
+        } else {
+            carrinho.forEach((p, i) => {
+                const subtotal = p.valor * p.quantidade;
+                total += subtotal;
+
+                tabela.innerHTML += `
+                    <tr>
+                        <td><img src="${p.foto}" width="60" class="me-2 rounded" /> ${p.nome}</td>
+                        <td>R$ ${p.valor.toFixed(2)}</td>
+                        <td>${p.quantidade}</td>
+                        <td>R$ ${subtotal.toFixed(2)}</td>
+                        <td><button class="btn btn-sm btn-outline-danger" onclick="removerItem(${i})">🗑️</button></td>
+                    </tr>
+                `;
+            });
+        }
+
+        document.getElementById("valorTotal").innerText = `R$ ${total.toFixed(2)}`;
+    }
+
+    function removerItem(index) {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        carrinho.splice(index, 1);
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        atualizarCarrinho();
+    }
+
+    document.getElementById("limparCarrinho").addEventListener("click", () => {
+        localStorage.removeItem("carrinho");
+        atualizarCarrinho();
+    });
+
+    atualizarCarrinho();
+</script>
+}
