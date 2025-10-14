@@ -17,16 +17,64 @@
         <div class="col-md-6">
             <h1 class="mb-3">@produto.Nome</h1>
             <p class="text-muted">Categoria: <strong>@produto.Categoria.Nome</strong></p>
-            <p><strong>Valor de Venda:</strong> <span class="text-success fs-4">R$ @(produto.ValorVenda.ToString("F2"))</span></p>
+            <p><strong>Valor de Venda:</strong> <span class="color: #bb9355 fs-3">R$ @(produto.ValorVenda.ToString("F2"))</span></p>
             <p><strong>Estoque disponível:</strong> @produto.QtdeEstoque</p>
 
-            <div class="mt-3">
-                <label for="quantidade" class="form-label">Quantidade:</label>
-                <input type="number" id="quantidade" class="form-control w-25 d-inline-block" min="1" value="1" />
-            </div>
+           <div class="mt-3 d-flex align-items-center">
+    <label for="quantidade" class="form-label me-2">Quantidade:</label>
+    <div class="quantidade-input d-flex">
+        <button type="button" class="btn-decrement">-</button>
+        <input type="number" id="quantidade" class="form-control text-center" min="1" value="1" />
+        <button type="button" class="btn-increment">+</button>
+    </div>
+</div>
+
+<style>
+.quantidade-input {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 120px;
+}
+
+.quantidade-input input {
+    border: none;
+    width: 50%;
+    outline: none;
+}
+
+.quantidade-input button {
+    flex: 1;
+    border: none;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.quantidade-input button:hover {
+    background-color: #e0e0e0;
+}
+</style>
+
+<script>
+const input = document.getElementById('quantidade');
+const increment = document.querySelector('.btn-increment');
+const decrement = document.querySelector('.btn-decrement');
+
+increment.addEventListener('click', () => {
+    input.value = parseInt(input.value) + 1;
+});
+
+decrement.addEventListener('click', () => {
+    if(input.value > 1) {
+        input.value = parseInt(input.value) - 1;
+    }
+});
+</script>
+
 
             <!-- Botão Adicionar ao Carrinho -->
-            <button id="addCarrinhoBtn" class="btn btn-success mt-3">
+            <button id="addCarrinhoBtn" class="btn btn-primary mt-3">
                 🛒 Adicionar ao Carrinho
             </button>
         </div>
@@ -45,8 +93,8 @@
                     <img src="@s.ArquivoFoto" class="card-img-top" alt="@s.Nome" />
                     <div class="card-body">
                         <h5 class="card-title">@s.Nome</h5>
-                        <p class="text-success fw-bold">R$ @s.ValorVenda.ToString("F2")</p>
-                        <a asp-controller="Home" asp-action="Produto" asp-route-id="@s.Id" class="btn btn-outline-primary">Ver mais</a>
+                        <p class="color: #bb9355 fs-6">R$ @s.ValorVenda.ToString("F2")</p>
+                        <a asp-controller="Home" asp-action="Produto" asp-route-id="@s.Id" class="btn btn-primary mt-3">Ver mais</a>
                     </div>
                 </div>
             }
@@ -60,6 +108,40 @@
 
 @section Scripts {
     <script>
+        function mostrarNotificacao(mensagem) {
+            const notificacao = document.createElement("div");
+            notificacao.textContent = mensagem;
+            notificacao.style.position = "fixed";
+            notificacao.style.top = "50%";
+            notificacao.style.left = "50%";
+            notificacao.style.transform = "translate(-50%, -50%)";
+            notificacao.style.backgroundColor = "#fff"; // cor da marca La Kza
+            notificacao.style.color = "#000000";
+            notificacao.style.padding = "15px 30px";
+            notificacao.style.borderRadius = "10px";
+            notificacao.style.fontWeight = "600";
+            notificacao.style.fontFamily = "'Poppins', sans-serif";
+            notificacao.style.zIndex = "9999";
+            notificacao.style.opacity = "0";
+            notificacao.style.transition = "opacity 0.5s ease";
+            notificacao.style.fontWeight = "400";          // letra mais fina
+            notificacao.style.fontFamily = "'Poppins', sans-serif";
+            notificacao.style.boxShadow = "0 0 20px rgba(0, 0, 0, 0.15)";
+            notificacao.style.border = "1px solid #bb9355"; // detalhe dourado sutil
+
+
+            document.body.appendChild(notificacao);
+
+            // aparece suavemente
+            setTimeout(() => notificacao.style.opacity = "1", 100);
+
+            // desaparece após 2,5 segundos
+            setTimeout(() => {
+                notificacao.style.opacity = "0";
+                setTimeout(() => notificacao.remove(), 500);
+            }, 2500);
+        }
+
         document.getElementById("addCarrinhoBtn").addEventListener("click", function () {
             const produto = {
                 id: @produto.Id,
@@ -69,10 +151,8 @@
                 quantidade: parseInt(document.getElementById("quantidade").value)
             };
 
-            // Recupera o carrinho atual do localStorage
             let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-            // Verifica se o produto já existe no carrinho
             const existente = carrinho.find(p => p.id === produto.id);
             if (existente) {
                 existente.quantidade += produto.quantidade;
@@ -80,10 +160,9 @@
                 carrinho.push(produto);
             }
 
-            // Salva o carrinho atualizado
             localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-            alert("✅ Produto adicionado ao carrinho!");
+            mostrarNotificacao("Produto adicionado ao carrinho!");
         });
     </script>
 }

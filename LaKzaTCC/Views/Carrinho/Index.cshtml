@@ -1,9 +1,5 @@
-@{
-    ViewData["Title"] = "Meu Carrinho";
-}
-
 <div class="container my-5 pt-5">
-    <h2 class="mb-4">🛒 Meu Carrinho</h2>
+    <h2 class="mb-4"> Meu Carrinho</h2>
 
     <table class="table table-striped">
         <thead>
@@ -23,6 +19,10 @@
     <div class="text-end mt-3">
         <h4>Total: <span id="valorTotal" class="text-success">R$ 0,00</span></h4>
         <button id="limparCarrinho" class="btn btn-danger mt-3">Esvaziar Carrinho</button>
+        <!-- Botão de Finalizar Compra no WhatsApp -->
+        <a id="finalizarWhatsapp" href="#" class="btn btn-primary mt-3" target="_blank">
+            Finalizar no WhatsApp
+        </a>
     </div>
 </div>
 
@@ -33,6 +33,10 @@
         const tabela = document.getElementById("tabelaCarrinho");
         tabela.innerHTML = "";
         let total = 0;
+
+        // Início da mensagem do WhatsApp
+        let mensagemCarrinho = "Gostaria de finalizar minha compra! Meu carrinho contém os seguintes itens:\n\n";
+        mensagemCarrinho += `Data do Pedido: ${new Date().toLocaleString()}\n\n`;
 
         if (carrinho.length === 0) {
             tabela.innerHTML = `<tr><td colspan="5" class="text-center">Seu carrinho está vazio.</td></tr>`;
@@ -50,9 +54,25 @@
                         <td><button class="btn btn-sm btn-outline-danger" onclick="removerItem(${i})">🗑️</button></td>
                     </tr>
                 `;
+
+                // Montagem da mensagem do item
+                mensagemCarrinho += `Produto: ${p.nome}\n`;
+                mensagemCarrinho += `Quantidade: ${p.quantidade} x Preço: R$ ${p.valor.toFixed(2)}\n`;
+                mensagemCarrinho += `Subtotal: R$ ${(p.valor * p.quantidade).toFixed(2)}\n`;
+                mensagemCarrinho += "---------------------------\n";
             });
         }
 
+        // Adiciona total e finaliza a mensagem
+        mensagemCarrinho += `\nTotal: R$ ${total.toFixed(2)}\n\n`;
+        mensagemCarrinho += `-Pedido feito pelo site La Kza.`;
+
+        // Codifica e gera o link do WhatsApp
+        const numeroWhatsApp = "+5514998087834"; // Substitua pelo número da loja
+        const mensagemCodificada = encodeURIComponent(mensagemCarrinho);
+        document.getElementById("finalizarWhatsapp").href = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+
+        // Atualiza o valor total no HTML
         document.getElementById("valorTotal").innerText = `R$ ${total.toFixed(2)}`;
     }
 
@@ -68,6 +88,7 @@
         atualizarCarrinho();
     });
 
+    // Inicializa carrinho ao carregar a página
     atualizarCarrinho();
 </script>
 }
