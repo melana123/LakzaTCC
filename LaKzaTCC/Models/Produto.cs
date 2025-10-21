@@ -10,12 +10,17 @@ public class Produto
 
     [Required(ErrorMessage = "Por favor, informe a Categoria")]
     public int CategoriaId { get; set; }
+    
     [ForeignKey("CategoriaId")]
     public Categoria Categoria { get; set; }
 
     [Required(ErrorMessage = "Por favor, informe o Nome")]
     [StringLength(60, ErrorMessage = "O nome deve possuir no máximo 60 caracteres")]
     public string Nome { get; set; }
+
+    [StringLength(500, ErrorMessage = "A descrição deve possuir no máximo 500 caracteres")]
+    [Display(Name = "Descricao")]
+    public string? Descricao { get; set; }  
 
     [Display(Name = "Quantidade em Estoque")]
     [Range(0, int.MaxValue)]
@@ -35,6 +40,6 @@ public class Produto
     public bool Destaque { get; set; }
 
     [StringLength(200)]
-    [Display(Name ="Foto")]
+    [Display(Name = "Foto")]
     public string ArquivoFoto { get; set; }
 }

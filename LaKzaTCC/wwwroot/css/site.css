@@ -49,3 +49,6 @@
   margin-bottom: 20px;
 }
 
+.nav-link:hover {
+  color: #ac812b;
+}
