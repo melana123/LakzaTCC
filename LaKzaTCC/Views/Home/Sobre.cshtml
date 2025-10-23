@@ -1,29 +1,94 @@
 @{
     ViewData["Title"] = "Sobre";
 }
+
 @section Styles {
     <link rel="stylesheet" href="~/css/site.css">
+
+    <style>
+        /* Resetando margens e preenchimento */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Remover barras de rolagem */
+        html, body {
+            overflow: hidden; /* Remove as barras de rolagem */
+        }
+
+        /* Estilo geral da página */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            color: #000000;
+            line-height: 1.6;
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        /* Container principal */
+        .conteudo {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            border: 3px solid #a87545; /* borda com cor da marca */
+            box-shadow: 0 4px 12px rgba(107, 79, 44, 0.2); /* sombra suave */
+            margin-top: 40px;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Efeito ao passar o mouse */
+        .conteudo:hover {
+            border-color: #b88a50;
+            box-shadow: 0 6px 16px rgba(107, 79, 44, 0.3);
+        }
+
+        /* Estilo da seção "Sobre" */
+        .sobre {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .sobre h1 {
+            font-size: 2.5rem;
+            color: #6b4f2c;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .sobre p {
+            font-size: 1.1rem;
+            color: #111010;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+      
+    </style>
 }
 
 <div class="conteudo">
     <section class="sobre">
         <h1>Sobre a LaKza</h1>
         <p>
-            A <strong>LaKza</strong> nasceu da paixão por transformar ambientes em lares acolhedores, elegantes e cheios
-            de personalidade.
-            Desde o início, nosso compromisso é oferecer produtos que unem <strong>qualidade</strong>,
-            <strong>conforto</strong> e <strong>estilo</strong>.
+            A LaKza nasceu da paixão por transformar ambientes em lares acolhedores, elegantes e cheios
+            de personalidade.Desde o início, nosso compromisso é oferecer produtos que unem qualidade, conforto estilo.
         </p>
 
         <p>
-            Nossa missão é levar até você itens que tragam <strong>bem-estar</strong> e tornem seu dia a dia mais leve e
+            Nossa missão é levar até você itens que tragam bem-estar e tornem seu dia a dia mais leve e
             sofisticado.
-            Cada produto é cuidadosamente selecionado para garantir <strong>aromas marcantes</strong>, <strong>design
-                refinado</strong> e uma experiência única.
+            Cada produto é cuidadosamente selecionado para garantir aromas marcantes,
+            design refinado e uma experiência única.
         </p>
 
         <p>
-            Mais do que uma loja, somos parte da sua casa. Obrigado por caminhar conosco nessa jornada!
+            Mais do que uma loja, somos parte da sua casa.
         </p>
+        <p> Obrigado por caminhar conosco nessa jornada!</p>
     </section>
 </div>

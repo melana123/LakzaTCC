@@ -50,7 +50,7 @@
 }
 
 .nav-link:hover {
-  color: #ac812b;
+  color: #020202;
 }
 /* Container para o select + ícone */
 .mb-3 {
@@ -95,3 +95,19 @@
   pointer-events: none; /* para não bloquear clique */
   font-size: 18px;
 }
+.filtro-categorias {
+  width: 100%;
+  max-width: 600px; /* aumentei a largura (antes era 400px) */
+  padding: 20px;
+}
+
+.filtro-categorias .form-select {
+  border: 2px solid #a87545;
+  border-radius: 8px;
+  padding: 10px;
+  color: #6b4f2c;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+}
+
+
