@@ -109,5 +109,12 @@
   font-weight: 500;
   transition: border-color 0.3s ease;
 }
+/* Efeito de elevação nos cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-
+.card:hover {
+  transform: translateY(-8px); /* Sobe um pouco */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+}
